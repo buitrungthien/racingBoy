@@ -1,0 +1,42 @@
+.searchBox {
+    border: solid 2px black;
+    box-shadow: 7px 7px rgb(155, 150, 150);
+    padding-bottom: 10px;
+}
+
+input {
+    display: block;    
+    max-width: 70%;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.searchBoxHeader {
+    display: block;
+    background-color: rgb(170, 53, 53);
+    color: white;
+    padding: 10px;
+}
+
+label {
+    padding-left: 10px;
+    font-weight: bold;
+}
+
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+tr:hover {
+    background-color: lightgray;
+}
+
+
+
+th {
+    background-color: rgb(170, 53, 53);
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+}

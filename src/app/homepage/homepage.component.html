@@ -1,0 +1,43 @@
+<div class="container" style="margin-top: 20px;">
+    <div class="row">
+        <div class="col-3">
+            <div class="searchBox">
+                <label class="searchBoxHeader"><b>Magical Search Box</b></label>
+                <label for="filterField">Search In: </label>
+                <input type="text" id="filterField" [(ngModel)]="filterField">
+                <label for="filterInput">Value: </label>
+                <input type="text" id="filterInput" [(ngModel)]="filterInput">
+            </div>
+            <hr>
+            <label for="sortButton">Sort From:</label>&nbsp;
+            <button class="btn btn-success" id="sortButton" (click)="fromLargerToSmaller = !fromLargerToSmaller">
+                {{ fromLargerToSmaller ? 'Larger To Smaller' : 'Smaller To Larger' }}
+            </button>
+            <hr>
+            <span class="float-right" style="margin-right: 10px;">Sort By: {{ sortProperty }}</span>
+        </div>
+        <div class="col-9">
+            <div class="loader" *ngIf="!tableOfRiders"></div>
+            <table style="width: 100%" *ngIf="tableOfRiders">
+                <thead>
+                    <tr>
+                        <th (click)="sortProperty='position'" style="cursor: pointer">Position <i [class]="fromLargerToSmaller ? 'fas fa-caret-up' : 'fas fa-caret-down'"></i></th>
+                        <th>Nationality</th>
+                        <th>FullName</th>
+                        <th>Team</th>
+                        <th (click)="sortProperty='points'" style="cursor: pointer">Points <i [class]="fromLargerToSmaller ? 'fas fa-caret-up' : 'fas fa-caret-down'"></i></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let rider of tableOfRiders | filter:filterInput:filterField | sort:sortProperty:fromLargerToSmaller" [routerLink]="['/riders', rider.id]">
+                        <td>{{ rider.position }}</td>
+                        <td><span [class]="displayFlag(rider.nationality)"></span></td>
+                        <td>{{ rider.fullName }}</td>
+                        <td>{{ rider.team }}</td>
+                        <td>{{ rider.points }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="loader" *ngIf="!detail"></div>
+<table style="width: 100%" *ngIf="detail">
+    <thead>
+        <tr>
+            <th>Round</th>
+            <th>Grand Prix</th>
+            <th>Team</th>
+            <th>Grid</th>
+            <th>Race</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let element of detail">
+            <td>{{ element.round }}</td>
+            <td>{{ element.grandPrix }}</td>
+            <td>{{ element.team }}</td>
+            <td>{{ element.grid }}</td>
+            <td>{{ element.race }}</td>
+        </tr>
+    </tbody>
+</table>

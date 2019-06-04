@@ -1,0 +1,21 @@
+<div class="container" style="margin-top: 20px;">
+    <button class="btn btn-success" [routerLink]="['/']">Go to HomePage</button>
+    <hr>
+    <div class="row">
+        <div [class]="detailBtnIsCliked ? 'col-3' : 'col-4 offset-4'">
+            <div class="card" style="width: 100%;" *ngIf="rider">
+                <img src="https://via.placeholder.com/300x150" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">{{rider.fullName}}</h5>
+                    <p>Country: {{rider.nationality}}</p>
+                    <p>Team: {{rider.team}}</p>
+                    <p>Birth: {{rider.dateOfBirth}}</p>
+                    <button class="btn btn-primary" (click)="goToDetail()">View Details</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-8">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
